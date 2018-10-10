@@ -108,6 +108,7 @@
 				TargetAttributes = {
 					B4A9F56B1DC8E8110031229A = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9D23U6XAWC;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -291,10 +292,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9D23U6XAWC;
 				INFOPLIST_FILE = PirateHandbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.PirateHandbook;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.almaunion.PirateHandbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -304,10 +306,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9D23U6XAWC;
 				INFOPLIST_FILE = PirateHandbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.PirateHandbook;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.almaunion.PirateHandbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
