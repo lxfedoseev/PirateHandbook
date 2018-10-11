@@ -23,8 +23,15 @@
 import UIKit
 
 class DictionaryViewController: UITableViewController {
+    
+    private var searchController =
+        UISearchController(searchResultsController: nil)
+    
   override func awakeFromNib() {
     super.awakeFromNib()
+    
+    navigationItem.searchController = searchController
+    navigationItem.hidesSearchBarWhenScrolling = true
     
     let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "bg-parchment"))
     backgroundImageView.contentMode = .center
