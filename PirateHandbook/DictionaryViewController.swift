@@ -30,6 +30,12 @@ class DictionaryViewController: UITableViewController {
   override func awakeFromNib() {
     super.awakeFromNib()
     
+    refreshControl = UIRefreshControl()
+    refreshControl?.addTarget(
+        self,
+        action: #selector(simulateRefresh),
+        for: .valueChanged)
+    
     navigationItem.searchController = searchController
     navigationItem.hidesSearchBarWhenScrolling = true
     
@@ -41,5 +47,11 @@ class DictionaryViewController: UITableViewController {
   @IBAction func dismissModal() {
     dismiss(animated: true, completion: nil)
   }
+    
+    @objc func simulateRefresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.refreshControl?.endRefreshing()
+        }
+    }
 }
 

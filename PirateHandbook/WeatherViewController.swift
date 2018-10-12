@@ -26,7 +26,37 @@ class WeatherViewController: UIViewController {
   @IBOutlet var backgroundImageView: UIImageView!
   @IBOutlet var stackView: UIStackView!
   
-  override func viewDidLoad() {
+  
+    @IBOutlet weak var todaysWeatherIcon: UIImageView!
+    
+    
+    // 1
+    private let customSpacing: CGFloat = 40
+    // 2
+    private var highlightingToday = false {
+        didSet {
+            let spacing: CGFloat
+            // 3
+            if highlightingToday == false {
+                spacing = UIStackView.spacingUseDefault
+            } else {
+                spacing = customSpacing
+            }
+            // 4
+            UIViewPropertyAnimator.runningPropertyAnimator(
+                withDuration: 0.5, delay: 0, animations: {
+                    // 5
+                    self.stackView.setCustomSpacing(spacing,
+                                                    after: self.todaysWeatherIcon)
+            }) }
+    }
+    
+    
+    @IBAction func todayTapped(_ sender: Any) {
+         highlightingToday = !highlightingToday
+    }
+    
+    override func viewDidLoad() {
     super.viewDidLoad()
     
     setupImages(forTraitCollection: traitCollection)

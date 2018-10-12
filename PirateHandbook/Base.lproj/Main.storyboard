@@ -131,11 +131,12 @@
         <scene sceneID="33U-j1-6LR">
             <objects>
                 <tableViewController id="sMT-2P-HQx" customClass="DictionaryViewController" customModule="PirateHandbook" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c4R-Ht-pc5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c4R-Ht-pc5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                         <sections>
                             <tableViewSection id="ADY-x5-AqB">
                                 <cells>
@@ -311,6 +312,13 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKH-Nh-lN7">
+                                <rect key="frame" x="186" y="397.33333333333331" width="42" height="30"/>
+                                <state key="normal" title="Today"/>
+                                <connections>
+                                    <action selector="todayTapped:" destination="X4n-4e-heZ" eventType="touchUpInside" id="ajO-Pi-dd8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -318,6 +326,8 @@
                             <constraint firstItem="j8p-cf-RLC" firstAttribute="leading" secondItem="qot-Yh-kAQ" secondAttribute="leading" priority="249" id="JVw-NR-qzM"/>
                             <constraint firstItem="j8p-cf-RLC" firstAttribute="centerX" secondItem="qot-Yh-kAQ" secondAttribute="centerX" id="bnT-35-bUH"/>
                             <constraint firstAttribute="bottom" secondItem="j8p-cf-RLC" secondAttribute="bottom" priority="249" id="bvh-zt-4OF"/>
+                            <constraint firstItem="HKH-Nh-lN7" firstAttribute="centerX" secondItem="j8p-cf-RLC" secondAttribute="centerX" id="csw-rN-05Y"/>
+                            <constraint firstItem="HKH-Nh-lN7" firstAttribute="firstBaseline" secondItem="j8p-cf-RLC" secondAttribute="baseline" constant="22" symbolType="layoutAnchor" id="jic-hn-n5Y"/>
                             <constraint firstItem="qot-Yh-kAQ" firstAttribute="trailing" secondItem="j8p-cf-RLC" secondAttribute="trailing" priority="249" id="jlP-WQ-p1O"/>
                             <constraint firstItem="j8p-cf-RLC" firstAttribute="centerY" secondItem="RDE-tL-uQC" secondAttribute="centerY" id="juU-OL-fe3"/>
                         </constraints>
@@ -328,13 +338,14 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="wXB-GR-S10" id="epJ-6s-xul"/>
                         <outlet property="stackView" destination="j8p-cf-RLC" id="RWv-e8-5OT"/>
+                        <outlet property="todaysWeatherIcon" destination="Kif-Dl-vDe" id="QNH-PU-ngb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zKF-Tr-RIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2407.2463768115945" y="379.89130434782612"/>
         </scene>
-        <!--Secret Map-->
+        <!--Map View Controller-->
         <scene sceneID="zxF-eR-O5L">
             <objects>
                 <viewController id="DYd-Py-CdP" customClass="MapViewController" customModule="PirateHandbook" customModuleProvider="target" sceneMemberID="viewController">
@@ -437,7 +448,38 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wdd-m6-yXD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Secret Map" largeTitleDisplayMode="never" id="pEB-Q2-d0i"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="pEB-Q2-d0i">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="ZLR-Em-JRh">
+                            <rect key="frame" x="207" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="x" translatesAutoresizingMaskIntoConstraints="NO" id="qb4-aE-Isj">
+                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="44" id="TIE-vZ-VRI"/>
+                                        <constraint firstAttribute="width" secondItem="qb4-aE-Isj" secondAttribute="height" multiplier="1:1" id="vaY-ib-MVA"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secret map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72b-NC-d2n">
+                                    <rect key="frame" x="-35" y="12.333333333333334" width="79" height="19.333333333333329"/>
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="qb4-aE-Isj" secondAttribute="bottom" id="8is-jz-qbc"/>
+                                <constraint firstItem="qb4-aE-Isj" firstAttribute="centerY" secondItem="ZLR-Em-JRh" secondAttribute="centerY" id="ECU-hF-sm5"/>
+                                <constraint firstItem="qb4-aE-Isj" firstAttribute="top" secondItem="ZLR-Em-JRh" secondAttribute="top" id="QgE-y6-kFI"/>
+                                <constraint firstItem="qb4-aE-Isj" firstAttribute="leading" secondItem="ZLR-Em-JRh" secondAttribute="leading" id="a8p-Mu-Ib2"/>
+                                <constraint firstItem="qb4-aE-Isj" firstAttribute="trailing" secondItem="72b-NC-d2n" secondAttribute="trailing" id="bjs-KS-XNa"/>
+                                <constraint firstAttribute="trailing" secondItem="72b-NC-d2n" secondAttribute="trailing" id="ul8-Is-6ml"/>
+                                <constraint firstItem="72b-NC-d2n" firstAttribute="centerY" secondItem="ZLR-Em-JRh" secondAttribute="centerY" id="wRF-al-21N"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="desiredXConstraint" destination="uyO-uu-fBJ" id="N71-S8-Pbc"/>
